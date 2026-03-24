@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quake Window</title>
+    <meta
+      name="description"
+      content="Explore a bundled USGS monthly earthquake snapshot with local filtering and SVG charts."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="hero">
+        <p class="eyebrow">Bundled monthly snapshot</p>
+        <h1>Quake Window</h1>
+        <p class="lede">
+          Explore recent earthquakes from the USGS monthly feed without any server or API key.
+          Filter locally, inspect depth and magnitude patterns, and scan the most active regions.
+        </p>
+        <div class="hero-meta" id="hero-meta"></div>
+      </section>
+
+      <section class="controls">
+        <label>
+          Minimum magnitude
+          <input id="min-magnitude" type="range" min="0" max="6" step="0.5" value="2" />
+          <span id="min-magnitude-label">2.0+</span>
+        </label>
+        <label>
+          Place search
+          <input
+            id="place-search"
+            type="search"
+            placeholder="Alaska, Puerto Rico, Japan..."
+            autocomplete="off"
+          />
+        </label>
+      </section>
+
+      <section class="stats" id="stats"></section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Magnitude vs depth</h2>
+          <p>Most recent events are highlighted toward the right edge.</p>
+        </div>
+        <svg id="scatterplot" viewBox="0 0 820 360" role="img" aria-label="Magnitude and depth scatterplot"></svg>
+      </section>
+
+      <section class="panel-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Magnitude bands</h2>
+            <p>Distribution of the filtered events.</p>
+          </div>
+          <svg id="histogram" viewBox="0 0 420 280" role="img" aria-label="Magnitude histogram"></svg>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Top regions</h2>
+            <p>The place label suffixes most common in the current filter.</p>
+          </div>
+          <ol id="top-places" class="place-list"></ol>
+        </section>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Largest filtered earthquakes</h2>
+          <p>Sorted by magnitude, then recency.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Magnitude</th>
+                <th>Place</th>
+                <th>Depth</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="quake-table"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

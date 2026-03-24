@@ -1,0 +1,22 @@
+{
+  "name": "quake-window-usgs",
+  "summary": "A static earthquake exploration site that bundles a real USGS monthly GeoJSON snapshot, normalizes it into a lightweight local dataset, and lets you filter recent earthquakes by magnitude and place while inspecting summary cards, SVG charts, and the largest matching events.",
+  "category": "data-viz",
+  "tech_stack": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "USGS GeoJSON"
+  ],
+  "test_commands": [
+    "npm test"
+  ],
+  "run_commands": [
+    "npm run build:data",
+    "npm run serve"
+  ],
+  "github_repo": "jamiegonzalez929/quake-window-usgs",
+  "github_url": "https://github.com/jamiegonzalez929/quake-window-usgs",
+  "pages_url": ""
+}
